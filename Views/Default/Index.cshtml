@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BOL1.UniversityCouseViewModel>
+
+<h3>
+   Search Courses
+</h3>
+
+<table class="table">
+    @using (Html.BeginForm( "Index", "Default", FormMethod.Get))
+    {
+        <b> Search Option: </b>  
+        @Html.RadioButton("option", "country")<text>Country</text>  @Html.RadioButton("option", "courseName")<text>Course Name</text>  
+        @Html.RadioButton("option", "minimum_gpa")<text>Minimum GPA</text>  @Html.RadioButton("option", "minimum_gre_score")<text>Minimum GRE Score</text>
+        @Html.TextBox("Search")<input type="submit"
+                                      name="submit"
+                                      value="Search"/>
+    }
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.universityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimum_gpa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimum_gre_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.courseName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.universityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimum_gpa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimum_gre_score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.courseName)
+            </td>
+        </tr>
+    }
+
+</table>
